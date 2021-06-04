@@ -16,7 +16,7 @@ const index = () => {
     password: "",
   });
   const [newUserFlag, setNewUserFlag] = useState(false);
-  const [loginFlag, setloginFlag] = useState(false);
+  const [loginFlag, setLoginFlag] = useState(false);
 
   const handleInputChange = (e) => {
     setUser({
@@ -45,6 +45,8 @@ const index = () => {
         buttons: true,
         dangerMode: false,
       });
+      setLoginFlag(true);
+      setNewUserFlag(false);
       router.push("/");
     } else {
       swal({
@@ -63,6 +65,8 @@ const index = () => {
 
     try {
       const res = await fetchApi("api/user/login", "POST", loginInfo);
+      const data = await res.json();
+      console.log(data);
       if (res.status === 200) {
         swal({
           title: "Success",
@@ -71,6 +75,10 @@ const index = () => {
           buttons: true,
           dangerMode: false,
         });
+        await sessionStorage.setItem("id", data.user._id);
+        await sessionStorage.setItem("userData", JSON.stringify(data.user));
+        await sessionStorage.setItem("session", true);
+        await sessionStorage.setItem("token", data.token);
         router.push("/user");
       } else {
         swal({
@@ -89,6 +97,10 @@ const index = () => {
 
   return (
     <div>
+      <div>
+        <button onClick={() => setNewUserFlag(!newUserFlag)}>Sing Up</button>
+        <button onClick={() => setLoginFlag(!loginFlag)}>Log In</button>
+      </div>
       {newUserFlag && (
         <div>
           <h1>Sing Up</h1>
