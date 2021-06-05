@@ -1,19 +1,50 @@
 import React, { useEffect, useState } from "react";
 import AccountCard from "../../components/AccountCard/AccountCard";
+import { API_TEST } from "../../utils/globalConst";
 
+export const getServerSideProps = async (ctx) => {
+    try {
+      const accountsData = await fetch(
+        `${API_TEST}/api/user/accounts/${ctx.query.dni}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+      if (!accountsData) {
+        return {
+          statusCode: 503,
+        };
+      }
+      const  {accounts}  = await accountsData.json();
+  
+      return {
+        props: {
+          accounts,
+          statusCode: 200,
+        },
+      };
+    } catch (e) {
+      ctx.statusCode = 503;
+      return {
+        props: {
+          statusCode: 503,
+        },
+      };
+    }
+  };
 
-const index = () => {
+const index = ({accounts}) => {
   const [userData, setUserData] = useState({
     "": "",
   });
-  const [accounts, setAccounts] = useState([0]);
 
   const setSessionData = async () => {
-    let data = await JSON.parse(sessionStorage.getItem("userData"));
-    setUserData(data);
-    if (data.Accounts) {
-      setAccounts(data.Accounts);
-    }
+    setUserData(await JSON.parse(sessionStorage.getItem("userData")));
+    
   };
 
   useEffect(() => {

@@ -36,7 +36,6 @@ const index = () => {
     e.preventDefault();
 
     const res = await fetchApi("api/user/create", "POST", user);
-    console.log(res);
     if (res.status === 201) {
       swal({
         title: "Success",
@@ -66,7 +65,6 @@ const index = () => {
     try {
       const res = await fetchApi("api/user/login", "POST", loginInfo);
       const data = await res.json();
-      console.log(data);
       if (res.status === 200) {
         swal({
           title: "Success",
@@ -79,7 +77,7 @@ const index = () => {
         await sessionStorage.setItem("userData", JSON.stringify(data.user));
         await sessionStorage.setItem("session", true);
         await sessionStorage.setItem("token", data.token);
-        router.push("/user");
+        router.push(`/user?dni=${data.user.Dni}`);
       } else {
         swal({
           title: "Error",

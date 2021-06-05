@@ -2,8 +2,6 @@ import React from "react";
 import { API_TEST } from "../../utils/globalConst";
 import TransactionCard from "../../components/TransactionCard/TransactionCard";
 
-
-
 export const getServerSideProps = async (ctx) => {
   try {
     const transactionsData = await fetch(
@@ -21,12 +19,13 @@ export const getServerSideProps = async (ctx) => {
         statusCode: 503,
       };
     }
-    console.log(transactionsData)
     const  {transactions}  = await transactionsData.json();
 
     return {
       props: {
-        transactions: transactions,
+        transactions,
+        dni: ctx.query.dni,
+        account_id: ctx.params.id,
         statusCode: 200,
       },
     };
@@ -40,14 +39,13 @@ export const getServerSideProps = async (ctx) => {
   }
 };
 
-function transactions({ transactions }) {
-  console.log(transactions);
+function transactions({ transactions, dni, account_id }) {
   return (
     <div>
-    <h3>Transactions</h3>
+    <h1>Transactions of account id: {account_id}</h1>
     <div>
-    {transactions.transactions.map((item) => {
-      return <TransactionCard info={item} key={item.id} />;
+    {transactions.map((item) => {
+      return <TransactionCard info={item} key={item.id} dni={dni} acc={account_id}/>;
     })}
     </div>
   </div>

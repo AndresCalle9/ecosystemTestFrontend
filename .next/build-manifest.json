@@ -28,6 +28,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/account/[id].js"
+    ],
+    "/transaction/[id]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/transaction/[id].js"
     ]
   },
   "ampFirstPages": []
