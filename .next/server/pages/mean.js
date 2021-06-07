@@ -1,86 +1,217 @@
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 (function() {
 var exports = {};
-exports.id = "pages/mean";
-exports.ids = ["pages/mean"];
+exports.id = 396;
+exports.ids = [396];
 exports.modules = {
 
-/***/ "./src/pages/mean/index.jsx":
-/*!**********************************!*\
-  !*** ./src/pages/mean/index.jsx ***!
-  \**********************************/
+/***/ 4237:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getServerSideProps\": function() { return /* binding */ getServerSideProps; }\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _utils_fetchApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/fetchApi */ \"./src/utils/fetchApi.js\");\n/* harmony import */ var _utils_formatterPeso__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/formatterPeso */ \"./src/utils/formatterPeso.js\");\n/* harmony import */ var _utils_formatterUsd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/formatterUsd */ \"./src/utils/formatterUsd.js\");\n/* harmony import */ var _styles_pages_mean_module_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../styles/pages/mean.module.scss */ \"./src/styles/pages/mean.module.scss\");\n/* harmony import */ var _styles_pages_mean_module_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_styles_pages_mean_module_scss__WEBPACK_IMPORTED_MODULE_5__);\n\nvar _jsxFileName = \"/Users/andrescalleuribe/Dev-in-med/EcosystemsTest/frontend/src/pages/mean/index.jsx\";\n\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\n\n\n\n\nconst getServerSideProps = async ctx => {\n  return {\n    props: {\n      dni: ctx.query.dni,\n      acc: ctx.query.acc,\n      statusCode: 200\n    }\n  };\n};\n\nfunction index({\n  acc,\n  dni\n}) {\n  const {\n    0: reportFlag,\n    1: setReportFlag\n  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);\n  const {\n    0: dates,\n    1: setDates\n  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({\n    initial: \"\",\n    end: \"\"\n  });\n  const {\n    0: price,\n    1: setPrice\n  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);\n\n  const handleDate = e => {\n    setDates(_objectSpread(_objectSpread({}, dates), {}, {\n      [e.target.name]: e.target.value\n    }));\n  };\n\n  const sendDates = async () => {\n    const meanData = await (0,_utils_fetchApi__WEBPACK_IMPORTED_MODULE_2__.default)(`api/user/accounts/transaction/mean/${acc}/${dni}`, \"POST\", dates);\n    const {\n      mean,\n      currency\n    } = await meanData.json();\n    setPrice(currency == \"COP\" ? (0,_utils_formatterPeso__WEBPACK_IMPORTED_MODULE_3__.default)(mean) : (0,_utils_formatterUsd__WEBPACK_IMPORTED_MODULE_4__.default)(mean));\n    setReportFlag(!reportFlag);\n  };\n\n  return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n    className: (_styles_pages_mean_module_scss__WEBPACK_IMPORTED_MODULE_5___default().container),\n    children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n      children: \"Transaction media\"\n    }, void 0, false, {\n      fileName: _jsxFileName,\n      lineNumber: 47,\n      columnNumber: 7\n    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n      className: (_styles_pages_mean_module_scss__WEBPACK_IMPORTED_MODULE_5___default().datesInputs),\n      children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h3\", {\n        htmlFor: \"\",\n        children: \"Select dates\"\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 49,\n        columnNumber: 9\n      }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"label\", {\n        htmlFor: \"initial\",\n        children: \"Initial Date\"\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 50,\n        columnNumber: 9\n      }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n        type: \"date\",\n        name: \"initial\",\n        id: \"initial\",\n        onChange: handleDate\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 51,\n        columnNumber: 9\n      }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"label\", {\n        htmlFor: \"end\",\n        children: \"Final date\"\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 52,\n        columnNumber: 9\n      }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n        type: \"date\",\n        name: \"end\",\n        id: \"end\",\n        onChange: handleDate\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 53,\n        columnNumber: 9\n      }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n        className: \"button\",\n        onClick: sendDates,\n        children: \"Generate mean\"\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 54,\n        columnNumber: 9\n      }, this)]\n    }, void 0, true, {\n      fileName: _jsxFileName,\n      lineNumber: 48,\n      columnNumber: 7\n    }, this), reportFlag && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n      className: (_styles_pages_mean_module_scss__WEBPACK_IMPORTED_MODULE_5___default().report),\n      children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h2\", {\n        children: \"Media period\"\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 58,\n        columnNumber: 15\n      }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n        children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"b\", {\n          children: \"Media: \"\n        }, void 0, false, {\n          fileName: _jsxFileName,\n          lineNumber: 59,\n          columnNumber: 18\n        }, this), price]\n      }, void 0, true, {\n        fileName: _jsxFileName,\n        lineNumber: 59,\n        columnNumber: 15\n      }, this)]\n    }, void 0, true, {\n      fileName: _jsxFileName,\n      lineNumber: 57,\n      columnNumber: 11\n    }, this)]\n  }, void 0, true, {\n    fileName: _jsxFileName,\n    lineNumber: 46,\n    columnNumber: 5\n  }, this);\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (index);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9mcm9udGVuZC8uL3NyYy9wYWdlcy9tZWFuL2luZGV4LmpzeD84ODkxIl0sIm5hbWVzIjpbImdldFNlcnZlclNpZGVQcm9wcyIsImN0eCIsInByb3BzIiwiZG5pIiwicXVlcnkiLCJhY2MiLCJzdGF0dXNDb2RlIiwiaW5kZXgiLCJyZXBvcnRGbGFnIiwic2V0UmVwb3J0RmxhZyIsInVzZVN0YXRlIiwiZGF0ZXMiLCJzZXREYXRlcyIsImluaXRpYWwiLCJlbmQiLCJwcmljZSIsInNldFByaWNlIiwiaGFuZGxlRGF0ZSIsImUiLCJ0YXJnZXQiLCJuYW1lIiwidmFsdWUiLCJzZW5kRGF0ZXMiLCJtZWFuRGF0YSIsImZldGNoQXBpIiwibWVhbiIsImN1cnJlbmN5IiwianNvbiIsImZvcm1hdHRlclBlc28iLCJmb3JtYXR0ZXJVc2QiLCJzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVPLE1BQU1BLGtCQUFrQixHQUFHLE1BQU9DLEdBQVAsSUFBZTtBQUUzQyxTQUFPO0FBQ0xDLFNBQUssRUFBRTtBQUNMQyxTQUFHLEVBQUVGLEdBQUcsQ0FBQ0csS0FBSixDQUFVRCxHQURWO0FBRUxFLFNBQUcsRUFBRUosR0FBRyxDQUFDRyxLQUFKLENBQVVDLEdBRlY7QUFHTEMsZ0JBQVUsRUFBRTtBQUhQO0FBREYsR0FBUDtBQVFILENBVkk7O0FBWVAsU0FBU0MsS0FBVCxDQUFlO0FBQUNGLEtBQUQ7QUFBS0Y7QUFBTCxDQUFmLEVBQTBCO0FBQ3hCLFFBQU07QUFBQSxPQUFDSyxVQUFEO0FBQUEsT0FBYUM7QUFBYixNQUE4QkMsK0NBQVEsQ0FBQyxLQUFELENBQTVDO0FBQ0EsUUFBTTtBQUFBLE9BQUNDLEtBQUQ7QUFBQSxPQUFRQztBQUFSLE1BQW9CRiwrQ0FBUSxDQUFDO0FBQ2pDRyxXQUFPLEVBQUUsRUFEd0I7QUFFakNDLE9BQUcsRUFBRTtBQUY0QixHQUFELENBQWxDO0FBSUEsUUFBTTtBQUFBLE9BQUNDLEtBQUQ7QUFBQSxPQUFRQztBQUFSLE1BQW9CTiwrQ0FBUSxDQUFDLENBQUQsQ0FBbEM7O0FBRUEsUUFBTU8sVUFBVSxHQUFJQyxDQUFELElBQU87QUFDeEJOLFlBQVEsaUNBQ0hELEtBREc7QUFFTixPQUFDTyxDQUFDLENBQUNDLE1BQUYsQ0FBU0MsSUFBVixHQUFpQkYsQ0FBQyxDQUFDQyxNQUFGLENBQVNFO0FBRnBCLE9BQVI7QUFJRCxHQUxEOztBQU9BLFFBQU1DLFNBQVMsR0FBRyxZQUFZO0FBQzVCLFVBQU1DLFFBQVEsR0FBRyxNQUFNQyx3REFBUSxDQUM1QixzQ0FBcUNuQixHQUFJLElBQUdGLEdBQUksRUFEcEIsRUFFN0IsTUFGNkIsRUFHN0JRLEtBSDZCLENBQS9CO0FBS0EsVUFBTTtBQUFDYyxVQUFEO0FBQU9DO0FBQVAsUUFBbUIsTUFBTUgsUUFBUSxDQUFDSSxJQUFULEVBQS9CO0FBQ0FYLFlBQVEsQ0FBQ1UsUUFBUSxJQUFJLEtBQVosR0FBb0JFLDZEQUFhLENBQUNILElBQUQsQ0FBakMsR0FBeUNJLDREQUFZLENBQUNKLElBQUQsQ0FBdEQsQ0FBUjtBQUNBaEIsaUJBQWEsQ0FBQyxDQUFDRCxVQUFGLENBQWI7QUFDRCxHQVREOztBQVdBLHNCQUNFO0FBQUssYUFBUyxFQUFFc0IsaUZBQWhCO0FBQUEsNEJBQ0U7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsWUFERixlQUVFO0FBQUssZUFBUyxFQUFFQSxtRkFBaEI7QUFBQSw4QkFDRTtBQUFJLGVBQU8sRUFBQyxFQUFaO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLGNBREYsZUFFRTtBQUFPLGVBQU8sRUFBQyxTQUFmO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLGNBRkYsZUFHRTtBQUFPLFlBQUksRUFBQyxNQUFaO0FBQW1CLFlBQUksRUFBQyxTQUF4QjtBQUFrQyxVQUFFLEVBQUMsU0FBckM7QUFBK0MsZ0JBQVEsRUFBRWI7QUFBekQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxjQUhGLGVBSUU7QUFBTyxlQUFPLEVBQUMsS0FBZjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxjQUpGLGVBS0U7QUFBTyxZQUFJLEVBQUMsTUFBWjtBQUFtQixZQUFJLEVBQUMsS0FBeEI7QUFBOEIsVUFBRSxFQUFDLEtBQWpDO0FBQXVDLGdCQUFRLEVBQUVBO0FBQWpEO0FBQUE7QUFBQTtBQUFBO0FBQUEsY0FMRixlQU1FO0FBQVEsaUJBQVMsRUFBQyxRQUFsQjtBQUEyQixlQUFPLEVBQUVLLFNBQXBDO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLGNBTkY7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFlBRkYsRUFVR2QsVUFBVSxpQkFDUDtBQUFLLGVBQVMsRUFBRXNCLDhFQUFoQjtBQUFBLDhCQUNJO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLGNBREosZUFFSTtBQUFBLGdDQUFHO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLGdCQUFILEVBQWtCZixLQUFsQjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsY0FGSjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsWUFYTjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsVUFERjtBQW1CRDs7QUFFRCwrREFBZVIsS0FBZiIsImZpbGUiOiIuL3NyYy9wYWdlcy9tZWFuL2luZGV4LmpzeC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCwgeyB1c2VTdGF0ZSB9IGZyb20gXCJyZWFjdFwiO1xuaW1wb3J0IGZldGNoQXBpIGZyb20gXCIuLi8uLi91dGlscy9mZXRjaEFwaVwiO1xuaW1wb3J0IGZvcm1hdHRlclBlc28gZnJvbSBcIi4uLy4uL3V0aWxzL2Zvcm1hdHRlclBlc29cIjtcbmltcG9ydCBmb3JtYXR0ZXJVc2QgZnJvbSBcIi4uLy4uL3V0aWxzL2Zvcm1hdHRlclVzZFwiO1xuaW1wb3J0IHMgZnJvbSBcIi4uLy4uL3N0eWxlcy9wYWdlcy9tZWFuLm1vZHVsZS5zY3NzXCJcblxuZXhwb3J0IGNvbnN0IGdldFNlcnZlclNpZGVQcm9wcyA9IGFzeW5jIChjdHgpID0+IHtcbiAgXG4gICAgICByZXR1cm4ge1xuICAgICAgICBwcm9wczoge1xuICAgICAgICAgIGRuaTogY3R4LnF1ZXJ5LmRuaSxcbiAgICAgICAgICBhY2M6IGN0eC5xdWVyeS5hY2MsXG4gICAgICAgICAgc3RhdHVzQ29kZTogMjAwLFxuICAgICAgICB9LFxuICAgICAgfTtcbiAgICBcbiAgfTtcblxuZnVuY3Rpb24gaW5kZXgoe2FjYyxkbml9KSB7XG4gIGNvbnN0IFtyZXBvcnRGbGFnLCBzZXRSZXBvcnRGbGFnXSA9IHVzZVN0YXRlKGZhbHNlKTtcbiAgY29uc3QgW2RhdGVzLCBzZXREYXRlc10gPSB1c2VTdGF0ZSh7XG4gICAgaW5pdGlhbDogXCJcIixcbiAgICBlbmQ6IFwiXCIsXG4gIH0pO1xuICBjb25zdCBbcHJpY2UsIHNldFByaWNlXSA9IHVzZVN0YXRlKDApXG5cbiAgY29uc3QgaGFuZGxlRGF0ZSA9IChlKSA9PiB7XG4gICAgc2V0RGF0ZXMoe1xuICAgICAgLi4uZGF0ZXMsXG4gICAgICBbZS50YXJnZXQubmFtZV06IGUudGFyZ2V0LnZhbHVlLFxuICAgIH0pO1xuICB9O1xuXG4gIGNvbnN0IHNlbmREYXRlcyA9IGFzeW5jICgpID0+IHtcbiAgICBjb25zdCBtZWFuRGF0YSA9IGF3YWl0IGZldGNoQXBpKFxuICAgICAgYGFwaS91c2VyL2FjY291bnRzL3RyYW5zYWN0aW9uL21lYW4vJHthY2N9LyR7ZG5pfWAsXG4gICAgICBcIlBPU1RcIixcbiAgICAgIGRhdGVzXG4gICAgKTtcbiAgICBjb25zdCB7bWVhbiwgY3VycmVuY3l9ID0gYXdhaXQgbWVhbkRhdGEuanNvbigpO1xuICAgIHNldFByaWNlKGN1cnJlbmN5ID09IFwiQ09QXCIgPyBmb3JtYXR0ZXJQZXNvKG1lYW4pOiBmb3JtYXR0ZXJVc2QobWVhbikpO1xuICAgIHNldFJlcG9ydEZsYWcoIXJlcG9ydEZsYWcpO1xuICB9O1xuXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9e3MuY29udGFpbmVyfT5cbiAgICAgIDxoMT5UcmFuc2FjdGlvbiBtZWRpYTwvaDE+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT17cy5kYXRlc0lucHV0c30+XG4gICAgICAgIDxoMyBodG1sRm9yPVwiXCI+U2VsZWN0IGRhdGVzPC9oMz5cbiAgICAgICAgPGxhYmVsIGh0bWxGb3I9XCJpbml0aWFsXCI+SW5pdGlhbCBEYXRlPC9sYWJlbD5cbiAgICAgICAgPGlucHV0IHR5cGU9XCJkYXRlXCIgbmFtZT1cImluaXRpYWxcIiBpZD1cImluaXRpYWxcIiBvbkNoYW5nZT17aGFuZGxlRGF0ZX0gLz5cbiAgICAgICAgPGxhYmVsIGh0bWxGb3I9XCJlbmRcIj5GaW5hbCBkYXRlPC9sYWJlbD5cbiAgICAgICAgPGlucHV0IHR5cGU9XCJkYXRlXCIgbmFtZT1cImVuZFwiIGlkPVwiZW5kXCIgb25DaGFuZ2U9e2hhbmRsZURhdGV9IC8+XG4gICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwiYnV0dG9uXCIgb25DbGljaz17c2VuZERhdGVzfT5HZW5lcmF0ZSBtZWFuPC9idXR0b24+XG4gICAgICA8L2Rpdj5cbiAgICAgIHtyZXBvcnRGbGFnICYmIChcbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17cy5yZXBvcnR9PlxuICAgICAgICAgICAgICA8aDI+TWVkaWEgcGVyaW9kPC9oMj5cbiAgICAgICAgICAgICAgPHA+PGI+TWVkaWE6IDwvYj57cHJpY2V9PC9wPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgKX1cbiAgICA8L2Rpdj5cbiAgKTtcbn1cblxuZXhwb3J0IGRlZmF1bHQgaW5kZXg7XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/pages/mean/index.jsx\n");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getServerSideProps": function() { return /* binding */ getServerSideProps; }
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5282);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9297);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_fetchApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(464);
+/* harmony import */ var _utils_formatterPeso__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(289);
+/* harmony import */ var _utils_formatterUsd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(867);
+/* harmony import */ var _styles_pages_mean_module_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6313);
+/* harmony import */ var _styles_pages_mean_module_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_styles_pages_mean_module_scss__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+const getServerSideProps = async ctx => {
+  return {
+    props: {
+      dni: ctx.query.dni,
+      acc: ctx.query.acc,
+      statusCode: 200
+    }
+  };
+};
+
+function index({
+  acc,
+  dni
+}) {
+  const {
+    0: reportFlag,
+    1: setReportFlag
+  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+  const {
+    0: dates,
+    1: setDates
+  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    initial: "",
+    end: ""
+  });
+  const {
+    0: price,
+    1: setPrice
+  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);
+
+  const handleDate = e => {
+    setDates(_objectSpread(_objectSpread({}, dates), {}, {
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const sendDates = async () => {
+    const meanData = await (0,_utils_fetchApi__WEBPACK_IMPORTED_MODULE_2__/* .default */ .Z)(`api/user/accounts/transaction/mean/${acc}/${dni}`, "POST", dates);
+    const {
+      mean,
+      currency
+    } = await meanData.json();
+    setPrice(currency == "COP" ? (0,_utils_formatterPeso__WEBPACK_IMPORTED_MODULE_3__/* .default */ .Z)(mean) : (0,_utils_formatterUsd__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z)(mean));
+    setReportFlag(!reportFlag);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    className: (_styles_pages_mean_module_scss__WEBPACK_IMPORTED_MODULE_5___default().container),
+    children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
+      children: "Transaction media"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      className: (_styles_pages_mean_module_scss__WEBPACK_IMPORTED_MODULE_5___default().datesInputs),
+      children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
+        htmlFor: "",
+        children: "Select dates"
+      }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
+        htmlFor: "initial",
+        children: "Initial Date"
+      }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+        type: "date",
+        name: "initial",
+        id: "initial",
+        onChange: handleDate
+      }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
+        htmlFor: "end",
+        children: "Final date"
+      }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+        type: "date",
+        name: "end",
+        id: "end",
+        onChange: handleDate
+      }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+        className: "button",
+        onClick: sendDates,
+        children: "Generate mean"
+      })]
+    }), reportFlag && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      className: (_styles_pages_mean_module_scss__WEBPACK_IMPORTED_MODULE_5___default().report),
+      children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
+        children: "Media period"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+        children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("b", {
+          children: "Media: "
+        }), price]
+      })]
+    })]
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (index);
 
 /***/ }),
 
-/***/ "./src/utils/fetchApi.js":
-/*!*******************************!*\
-  !*** ./src/utils/fetchApi.js ***!
-  \*******************************/
+/***/ 464:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_globalConst__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/globalConst */ \"./src/utils/globalConst.js\");\n\n\nconst fetchApi = async (endPoint, method, body) => {\n  const res = await fetch(`${_utils_globalConst__WEBPACK_IMPORTED_MODULE_0__.API_TEST}/${endPoint}`, {\n    method: method,\n    headers: {\n      \"Content-Type\": \"application/json\"\n    },\n    body: JSON.stringify(body)\n  });\n  return res;\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (fetchApi);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9mcm9udGVuZC8uL3NyYy91dGlscy9mZXRjaEFwaS5qcz8yMWI1Il0sIm5hbWVzIjpbImZldGNoQXBpIiwiZW5kUG9pbnQiLCJtZXRob2QiLCJib2R5IiwicmVzIiwiZmV0Y2giLCJBUElfVEVTVCIsImhlYWRlcnMiLCJKU09OIiwic3RyaW5naWZ5Il0sIm1hcHBpbmdzIjoiOztBQUFBOztBQUVBLE1BQU1BLFFBQVEsR0FBRyxPQUFPQyxRQUFQLEVBQWdCQyxNQUFoQixFQUF1QkMsSUFBdkIsS0FBZ0M7QUFDOUMsUUFBTUMsR0FBRyxHQUFHLE1BQU1DLEtBQUssQ0FBRSxHQUFFQyx3REFBUyxJQUFHTCxRQUFTLEVBQXpCLEVBQTRCO0FBQzlDQyxVQUFNLEVBQUVBLE1BRHNDO0FBRTlDSyxXQUFPLEVBQUU7QUFDUCxzQkFBZ0I7QUFEVCxLQUZxQztBQUs5Q0osUUFBSSxFQUFFSyxJQUFJLENBQUNDLFNBQUwsQ0FBZU4sSUFBZjtBQUx3QyxHQUE1QixDQUF2QjtBQU9HLFNBQU9DLEdBQVA7QUFDTCxDQVREOztBQVdBLCtEQUFlSixRQUFmIiwiZmlsZSI6Ii4vc3JjL3V0aWxzL2ZldGNoQXBpLmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQVBJX1RFU1QgfSBmcm9tIFwiLi4vdXRpbHMvZ2xvYmFsQ29uc3RcIjtcblxuY29uc3QgZmV0Y2hBcGkgPSBhc3luYyAoZW5kUG9pbnQsbWV0aG9kLGJvZHkpID0+IHtcbiAgIGNvbnN0IHJlcyA9IGF3YWl0IGZldGNoKGAke0FQSV9URVNUfS8ke2VuZFBvaW50fWAsIHtcbiAgICAgICAgbWV0aG9kOiBtZXRob2QsXG4gICAgICAgIGhlYWRlcnM6IHtcbiAgICAgICAgICBcIkNvbnRlbnQtVHlwZVwiOiBcImFwcGxpY2F0aW9uL2pzb25cIixcbiAgICAgICAgfSxcbiAgICAgICAgYm9keTogSlNPTi5zdHJpbmdpZnkoYm9keSksXG4gICAgICB9KTtcbiAgICAgIHJldHVybiByZXNcbn1cblxuZXhwb3J0IGRlZmF1bHQgZmV0Y2hBcGk7Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/utils/fetchApi.js\n");
+/* harmony import */ var _utils_globalConst__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(145);
+
+
+const fetchApi = async (endPoint, method, body) => {
+  const res = await fetch(`${_utils_globalConst__WEBPACK_IMPORTED_MODULE_0__/* .API_TEST */ .w}/${endPoint}`, {
+    method: method,
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body)
+  });
+  return res;
+};
+
+/* harmony default export */ __webpack_exports__["Z"] = (fetchApi);
 
 /***/ }),
 
-/***/ "./src/utils/formatterPeso.js":
-/*!************************************!*\
-  !*** ./src/utils/formatterPeso.js ***!
-  \************************************/
+/***/ 289:
+/***/ (function(__unused_webpack_module, __webpack_exports__) {
+
+"use strict";
+const formatterPeso = price => {
+  const priceNumber = Number(price);
+  const priceWithFormat = new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0
+  });
+  return priceWithFormat.format(priceNumber);
+};
+
+/* harmony default export */ __webpack_exports__["Z"] = (formatterPeso);
+
+/***/ }),
+
+/***/ 867:
+/***/ (function(__unused_webpack_module, __webpack_exports__) {
+
+"use strict";
+const formatterUsd = price => {
+  const priceNumber = Number(price);
+  const priceWithFormat = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0
+  });
+  return priceWithFormat.format(priceNumber);
+};
+
+/* harmony default export */ __webpack_exports__["Z"] = (formatterUsd);
+
+/***/ }),
+
+/***/ 145:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconst formatterPeso = price => {\n  const priceNumber = Number(price);\n  const priceWithFormat = new Intl.NumberFormat('es-CO', {\n    style: 'currency',\n    currency: 'COP',\n    minimumFractionDigits: 0\n  });\n  return priceWithFormat.format(priceNumber);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (formatterPeso);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9mcm9udGVuZC8uL3NyYy91dGlscy9mb3JtYXR0ZXJQZXNvLmpzP2JiMDAiXSwibmFtZXMiOlsiZm9ybWF0dGVyUGVzbyIsInByaWNlIiwicHJpY2VOdW1iZXIiLCJOdW1iZXIiLCJwcmljZVdpdGhGb3JtYXQiLCJJbnRsIiwiTnVtYmVyRm9ybWF0Iiwic3R5bGUiLCJjdXJyZW5jeSIsIm1pbmltdW1GcmFjdGlvbkRpZ2l0cyIsImZvcm1hdCJdLCJtYXBwaW5ncyI6IjtBQUFBLE1BQU1BLGFBQWEsR0FBSUMsS0FBRCxJQUFXO0FBRS9CLFFBQU1DLFdBQVcsR0FBR0MsTUFBTSxDQUFDRixLQUFELENBQTFCO0FBQ0EsUUFBTUcsZUFBZSxHQUFHLElBQUlDLElBQUksQ0FBQ0MsWUFBVCxDQUFzQixPQUF0QixFQUErQjtBQUNyREMsU0FBSyxFQUFFLFVBRDhDO0FBRXJEQyxZQUFRLEVBQUUsS0FGMkM7QUFHckRDLHlCQUFxQixFQUFFO0FBSDhCLEdBQS9CLENBQXhCO0FBS0EsU0FBUUwsZUFBZSxDQUFDTSxNQUFoQixDQUF1QlIsV0FBdkIsQ0FBUjtBQUNELENBVEQ7O0FBV0UsK0RBQWVGLGFBQWYiLCJmaWxlIjoiLi9zcmMvdXRpbHMvZm9ybWF0dGVyUGVzby5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IGZvcm1hdHRlclBlc28gPSAocHJpY2UpID0+IHtcbiAgXG4gIGNvbnN0IHByaWNlTnVtYmVyID0gTnVtYmVyKHByaWNlKVxuICBjb25zdCBwcmljZVdpdGhGb3JtYXQgPSBuZXcgSW50bC5OdW1iZXJGb3JtYXQoJ2VzLUNPJywge1xuICAgIHN0eWxlOiAnY3VycmVuY3knLFxuICAgIGN1cnJlbmN5OiAnQ09QJyxcbiAgICBtaW5pbXVtRnJhY3Rpb25EaWdpdHM6IDBcbiAgfSlcbiAgcmV0dXJuIChwcmljZVdpdGhGb3JtYXQuZm9ybWF0KHByaWNlTnVtYmVyKSlcbn1cblxuICBleHBvcnQgZGVmYXVsdCBmb3JtYXR0ZXJQZXNvIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/utils/formatterPeso.js\n");
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "w": function() { return /* binding */ API_TEST; }
+/* harmony export */ });
+const API_TEST = 'http://localhost:5000';
 
 /***/ }),
 
-/***/ "./src/utils/formatterUsd.js":
-/*!***********************************!*\
-  !*** ./src/utils/formatterUsd.js ***!
-  \***********************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconst formatterUsd = price => {\n  const priceNumber = Number(price);\n  const priceWithFormat = new Intl.NumberFormat('en-US', {\n    style: 'currency',\n    currency: 'USD',\n    minimumFractionDigits: 0\n  });\n  return priceWithFormat.format(priceNumber);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (formatterUsd);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9mcm9udGVuZC8uL3NyYy91dGlscy9mb3JtYXR0ZXJVc2QuanM/ZWVlZSJdLCJuYW1lcyI6WyJmb3JtYXR0ZXJVc2QiLCJwcmljZSIsInByaWNlTnVtYmVyIiwiTnVtYmVyIiwicHJpY2VXaXRoRm9ybWF0IiwiSW50bCIsIk51bWJlckZvcm1hdCIsInN0eWxlIiwiY3VycmVuY3kiLCJtaW5pbXVtRnJhY3Rpb25EaWdpdHMiLCJmb3JtYXQiXSwibWFwcGluZ3MiOiI7QUFBQSxNQUFNQSxZQUFZLEdBQUlDLEtBQUQsSUFBVztBQUU1QixRQUFNQyxXQUFXLEdBQUdDLE1BQU0sQ0FBQ0YsS0FBRCxDQUExQjtBQUNBLFFBQU1HLGVBQWUsR0FBRyxJQUFJQyxJQUFJLENBQUNDLFlBQVQsQ0FBc0IsT0FBdEIsRUFBK0I7QUFDckRDLFNBQUssRUFBRSxVQUQ4QztBQUVyREMsWUFBUSxFQUFFLEtBRjJDO0FBR3JEQyx5QkFBcUIsRUFBRTtBQUg4QixHQUEvQixDQUF4QjtBQUtBLFNBQVFMLGVBQWUsQ0FBQ00sTUFBaEIsQ0FBdUJSLFdBQXZCLENBQVI7QUFDRCxDQVRIOztBQVdJLCtEQUFlRixZQUFmIiwiZmlsZSI6Ii4vc3JjL3V0aWxzL2Zvcm1hdHRlclVzZC5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IGZvcm1hdHRlclVzZCA9IChwcmljZSkgPT4ge1xuICBcbiAgICBjb25zdCBwcmljZU51bWJlciA9IE51bWJlcihwcmljZSlcbiAgICBjb25zdCBwcmljZVdpdGhGb3JtYXQgPSBuZXcgSW50bC5OdW1iZXJGb3JtYXQoJ2VuLVVTJywge1xuICAgICAgc3R5bGU6ICdjdXJyZW5jeScsXG4gICAgICBjdXJyZW5jeTogJ1VTRCcsXG4gICAgICBtaW5pbXVtRnJhY3Rpb25EaWdpdHM6IDBcbiAgICB9KVxuICAgIHJldHVybiAocHJpY2VXaXRoRm9ybWF0LmZvcm1hdChwcmljZU51bWJlcikpXG4gIH1cbiAgXG4gICAgZXhwb3J0IGRlZmF1bHQgZm9ybWF0dGVyVXNkIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/utils/formatterUsd.js\n");
-
-/***/ }),
-
-/***/ "./src/utils/globalConst.js":
-/*!**********************************!*\
-  !*** ./src/utils/globalConst.js ***!
-  \**********************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"API_TEST\": function() { return /* binding */ API_TEST; }\n/* harmony export */ });\nconst API_TEST = 'http://localhost:5000';//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9mcm9udGVuZC8uL3NyYy91dGlscy9nbG9iYWxDb25zdC5qcz83M2RiIl0sIm5hbWVzIjpbIkFQSV9URVNUIl0sIm1hcHBpbmdzIjoiOzs7O0FBQU8sTUFBTUEsUUFBUSxHQUFHLHVCQUFqQiIsImZpbGUiOiIuL3NyYy91dGlscy9nbG9iYWxDb25zdC5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjb25zdCBBUElfVEVTVCA9ICdodHRwOi8vbG9jYWxob3N0OjUwMDAnIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/utils/globalConst.js\n");
-
-/***/ }),
-
-/***/ "./src/styles/pages/mean.module.scss":
-/*!*******************************************!*\
-  !*** ./src/styles/pages/mean.module.scss ***!
-  \*******************************************/
+/***/ 6313:
 /***/ (function(module) {
 
-eval("// Exports\nmodule.exports = {\n\t\"container\": \"mean_container__Ta_fL\",\n\t\"datesInputs\": \"mean_datesInputs__F7lCl\",\n\t\"report\": \"mean_report__3v7Nk\",\n\t\"conatiner\": \"mean_conatiner__1ae8u\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9mcm9udGVuZC8uL3NyYy9zdHlsZXMvcGFnZXMvbWVhbi5tb2R1bGUuc2Nzcz84ZTEwIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwiZmlsZSI6Ii4vc3JjL3N0eWxlcy9wYWdlcy9tZWFuLm1vZHVsZS5zY3NzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gRXhwb3J0c1xubW9kdWxlLmV4cG9ydHMgPSB7XG5cdFwiY29udGFpbmVyXCI6IFwibWVhbl9jb250YWluZXJfX1RhX2ZMXCIsXG5cdFwiZGF0ZXNJbnB1dHNcIjogXCJtZWFuX2RhdGVzSW5wdXRzX19GN2xDbFwiLFxuXHRcInJlcG9ydFwiOiBcIm1lYW5fcmVwb3J0X18zdjdOa1wiLFxuXHRcImNvbmF0aW5lclwiOiBcIm1lYW5fY29uYXRpbmVyX18xYWU4dVwiXG59O1xuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/styles/pages/mean.module.scss\n");
+// Exports
+module.exports = {
+	"container": "mean_container__Ta_fL",
+	"datesInputs": "mean_datesInputs__F7lCl",
+	"report": "mean_report__3v7Nk",
+	"conatiner": "mean_conatiner__1ae8u"
+};
+
 
 /***/ }),
 
-/***/ "react":
-/*!************************!*\
-  !*** external "react" ***!
-  \************************/
+/***/ 9297:
 /***/ (function(module) {
 
 "use strict";
@@ -88,14 +219,11 @@ module.exports = require("react");;
 
 /***/ }),
 
-/***/ "react/jsx-dev-runtime":
-/*!****************************************!*\
-  !*** external "react/jsx-dev-runtime" ***!
-  \****************************************/
+/***/ 5282:
 /***/ (function(module) {
 
 "use strict";
-module.exports = require("react/jsx-dev-runtime");;
+module.exports = require("react/jsx-runtime");;
 
 /***/ })
 
@@ -106,7 +234,7 @@ module.exports = require("react/jsx-dev-runtime");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = (__webpack_exec__("./src/pages/mean/index.jsx"));
+var __webpack_exports__ = (__webpack_exec__(4237));
 module.exports = __webpack_exports__;
 
 })();
