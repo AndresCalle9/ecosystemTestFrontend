@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from "react";
 import AccountCard from "../../components/AccountCard/AccountCard";
-import { API_TEST } from "../../utils/globalConst";
+import fetchApi from "../../utils/fetchApi";
+
 
 export const getServerSideProps = async (ctx) => {
     try {
-      const accountsData = await fetch(
-        `${API_TEST}/api/user/accounts/${ctx.query.dni}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-  
+    const accountsData = await fetchApi(`api/user/accounts/${ctx.query.dni}`, "GET");
+        
       if (!accountsData) {
         return {
           statusCode: 503,

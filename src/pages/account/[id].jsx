@@ -1,20 +1,12 @@
 import React from "react";
-import { API_TEST } from "../../utils/globalConst";
+import fetchApi from "../../utils/fetchApi";
 import TransactionCard from "../../components/TransactionCard/TransactionCard";
 import Link from "next/link";
 
 
 export const getServerSideProps = async (ctx) => {
   try {
-    const transactionsData = await fetch(
-      `${API_TEST}/api/user/accounts/transactions/${ctx.params.id}/${ctx.query.dni}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const transactionsData = await fetchApi(`api/user/accounts/transactions/${ctx.params.id}/${ctx.query.dni}`, "GET");
 
     if (!transactionsData) {
       return {
