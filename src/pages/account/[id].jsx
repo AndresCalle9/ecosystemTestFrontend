@@ -1,6 +1,8 @@
 import React from "react";
 import { API_TEST } from "../../utils/globalConst";
 import TransactionCard from "../../components/TransactionCard/TransactionCard";
+import Link from "next/link";
+
 
 export const getServerSideProps = async (ctx) => {
   try {
@@ -43,6 +45,11 @@ function transactions({ transactions, dni, account_id }) {
   return (
     <div>
     <h1>Transactions of account id: {account_id}</h1>
+    <Link href = {`/mean?acc=${account_id}&dni=${dni}`} >
+        <a>
+          <button>Get transaction´s mean</button>
+        </a>
+      </Link>
     <div>
     {transactions.map((item) => {
       return <TransactionCard info={item} key={item.id} dni={dni} acc={account_id}/>;

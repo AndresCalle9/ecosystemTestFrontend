@@ -2,6 +2,6 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/account/[id]": "pages/account/[id].js",
-  "/transaction/[id]": "pages/transaction/[id].js"
+  "/mean": "pages/mean.js",
+  "/": "pages/index.js"
 }

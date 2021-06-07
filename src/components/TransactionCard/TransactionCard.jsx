@@ -4,7 +4,7 @@ import formatterUsd from "../../utils/formatterUsd";
 import Link from "next/link";
 
 function TransactionCard({ info, dni, acc}) {
-  const { amount, currency, date, state, type, id } = info;
+  const { amount, currency, date, id } = info;
   const price =
     currency == "COP" ? formatterPeso(amount) : formatterUsd(amount);
   return (
