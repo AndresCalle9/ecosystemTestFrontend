@@ -2,9 +2,7 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/mean": "pages/mean.js",
-  "/": "pages/index.js",
   "/user": "pages/user.js",
-  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
+  "/mean": "pages/mean.js",
   "/account/[id]": "pages/account/[id].js"
 }

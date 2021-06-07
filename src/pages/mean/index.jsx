@@ -32,7 +32,7 @@ function index({acc,dni}) {
 
   const sendDates = async () => {
     const meanData = await fetchApi(
-      `api/user/accounts/transactions/${acc}/${dni}`,
+      `api/user/accounts/transaction/mean/${acc}/${dni}`,
       "POST",
       dates
     );
