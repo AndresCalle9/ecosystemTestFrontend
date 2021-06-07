@@ -40,6 +40,6 @@
     ]
   },
   "devDependencies": {
-    "terser": "^5.7.0"
+    "postcss": "^8.3.0"
   }
 }
