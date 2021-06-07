@@ -2,6 +2,7 @@ import React from "react";
 import fetchApi from "../../utils/fetchApi";
 import TransactionCard from "../../components/TransactionCard/TransactionCard";
 import Link from "next/link";
+import s from "../../styles/pages/account.module.scss"
 
 
 export const getServerSideProps = async (ctx) => {
@@ -35,14 +36,14 @@ export const getServerSideProps = async (ctx) => {
 
 function transactions({ transactions, dni, account_id }) {
   return (
-    <div>
-    <h1>Transactions of account id: {account_id}</h1>
+    <div className={s.container}>
+    <h2>Transactions of account id: {account_id}</h2>
     <Link href = {`/mean?acc=${account_id}&dni=${dni}`} >
         <a>
-          <button>Get transaction´s mean</button>
+          <button className="button">Get transaction´s mean</button>
         </a>
       </Link>
-    <div>
+    <div className={s.transactionsContainer}>
     {transactions.map((item) => {
       return <TransactionCard info={item} key={item.id} dni={dni} acc={account_id}/>;
     })}

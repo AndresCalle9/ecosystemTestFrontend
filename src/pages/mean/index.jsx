@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import fetchApi from "../../utils/fetchApi";
 import formatterPeso from "../../utils/formatterPeso";
 import formatterUsd from "../../utils/formatterUsd";
+import s from "../../styles/pages/mean.module.scss"
 
 export const getServerSideProps = async (ctx) => {
   
@@ -42,18 +43,18 @@ function index({acc,dni}) {
   };
 
   return (
-    <div>
+    <div className={s.container}>
       <h1>Transaction media</h1>
-      <div>
+      <div className={s.datesInputs}>
         <h3 htmlFor="">Select dates</h3>
         <label htmlFor="initial">Initial Date</label>
         <input type="date" name="initial" id="initial" onChange={handleDate} />
         <label htmlFor="end">Final date</label>
         <input type="date" name="end" id="end" onChange={handleDate} />
-        <button onClick={sendDates}>Generate mean</button>
+        <button className="button" onClick={sendDates}>Generate mean</button>
       </div>
       {reportFlag && (
-          <div>
+          <div className={s.report}>
               <h2>Media period</h2>
               <p><b>Media: </b>{price}</p>
           </div>

@@ -34,6 +34,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/mean.js"
     ],
+    "/transaction/[id]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/transaction/[id].js"
+    ],
     "/user": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

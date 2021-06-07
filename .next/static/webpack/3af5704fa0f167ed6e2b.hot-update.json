@@ -1,0 +1,1 @@
+{"c":["webpack"],"r":["pages/account/[id]"],"m":["./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Faccount%2F%5Bid%5D&absolutePagePath=%2FUsers%2Fandrescalleuribe%2FDev-in-med%2FEcosystemsTest%2Ffrontend%2Fsrc%2Fpages%2Faccount%2F%5Bid%5D.jsx!","./src/components/TransactionCard/TransactionCard.jsx","./src/pages/account/[id].jsx"]}

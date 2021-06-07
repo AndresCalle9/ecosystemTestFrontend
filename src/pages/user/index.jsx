@@ -1,43 +1,45 @@
 import React, { useEffect, useState } from "react";
 import AccountCard from "../../components/AccountCard/AccountCard";
 import fetchApi from "../../utils/fetchApi";
-
+import s from "../../styles/pages/user.module.scss";
 
 export const getServerSideProps = async (ctx) => {
-    try {
-    const accountsData = await fetchApi(`api/user/accounts/${ctx.query.dni}`, "GET");
-        
-      if (!accountsData) {
-        return {
-          statusCode: 503,
-        };
-      }
-      const  {accounts}  = await accountsData.json();
-  
+  try {
+    const accountsData = await fetchApi(
+      `api/user/accounts/${ctx.query.dni}`,
+      "GET"
+    );
+
+    if (!accountsData) {
       return {
-        props: {
-          accounts,
-          statusCode: 200,
-        },
-      };
-    } catch (e) {
-      ctx.statusCode = 503;
-      return {
-        props: {
-          statusCode: 503,
-        },
+        statusCode: 503,
       };
     }
-  };
+    const { accounts } = await accountsData.json();
 
-const index = ({accounts}) => {
+    return {
+      props: {
+        accounts,
+        statusCode: 200,
+      },
+    };
+  } catch (e) {
+    ctx.statusCode = 503;
+    return {
+      props: {
+        statusCode: 503,
+      },
+    };
+  }
+};
+
+const index = ({ accounts }) => {
   const [userData, setUserData] = useState({
     "": "",
   });
 
   const setSessionData = async () => {
     setUserData(await JSON.parse(sessionStorage.getItem("userData")));
-    
   };
 
   useEffect(() => {
@@ -45,15 +47,15 @@ const index = ({accounts}) => {
   }, []);
 
   return (
-    <div>
+    <div className={s.container}>
       <h1>{userData.Name}</h1>
-      <div>
-        <h3>Personal Information</h3>
+      <div className={s.subcontainer}>
+        <h2>Personal Information</h2>
         <p>Dni: {userData.Dni}</p>
       </div>
 
-      <div>
-        <h3>Account Bank Information</h3>
+      <h2>Account Bank Information</h2>
+      <div className={s.accountsContainer}>
         {accounts.map((item) => {
           return <AccountCard info={item} key={item.id} dni={userData.Dni} />;
         })}

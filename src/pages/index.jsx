@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import fetchApi from "../utils/fetchApi";
 import { useRouter } from "next/router";
 import swal from "@sweetalert/with-react";
+import s from "../styles/pages/home.module.scss";
 
 const index = () => {
   const router = useRouter();
@@ -94,69 +95,77 @@ const index = () => {
   };
 
   return (
-    <div>
-      <div>
-        <button onClick={() => setNewUserFlag(!newUserFlag)}>Sing Up</button>
-        <button onClick={() => setLoginFlag(!loginFlag)}>Log In</button>
+    <div className={s.home}>
+      <div className={s.homeButtons}>
+        <button className="button" onClick={() => setNewUserFlag(!newUserFlag)}>
+          Sing Up
+        </button>
+        <button className="button" onClick={() => setLoginFlag(!loginFlag)}>
+          Log In
+        </button>
       </div>
       {newUserFlag && (
-        <div>
+        <div className={s.container}>
           <h1>Sing Up</h1>
-          <form onSubmit={sendUser}>
-            <label>Name</label>
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              onChange={handleInputChange}
-              required
-            />
-            <label>Dni</label>
-            <input
-              type="text"
-              placeholder="Dni"
-              name="dni"
-              onChange={handleInputChange}
-              required
-            />
-            <label>Password</label>
-            <input
-              type="text"
-              placeholder="Password"
-              name="password"
-              onChange={handleInputChange}
-              required
-            />
-            <button className="button" type="submit">
-              Create User
-            </button>
+          <form className={s.form} onSubmit={sendUser}>
+            <div className={s.subcontainer}>
+              <label>Name</label>
+              <input
+                type="text"
+                placeholder="Name"
+                name="name"
+                onChange={handleInputChange}
+                required
+              />
+              <label>Dni</label>
+              <input
+                type="text"
+                placeholder="Dni"
+                name="dni"
+                onChange={handleInputChange}
+                required
+              />
+              <label>Password</label>
+              <input
+                type="text"
+                placeholder="Password"
+                name="password"
+                onChange={handleInputChange}
+                required
+              />
+              <button className="button" type="submit">
+                Create User
+              </button>
+            </div>
           </form>
         </div>
       )}
 
       {loginFlag && (
-        <div>
+        <div className={s.container}>
           <h1>Log In</h1>
-          <form onSubmit={login}>
-            <label>Dni</label>
-            <input
-              type="text"
-              placeholder="Dni"
-              name="dni"
-              onChange={handleInputLoginChange}
-              required
-            />
-            <label>Password</label>
-            <input
-              type="text"
-              placeholder="Password"
-              name="password"
-              onChange={handleInputLoginChange}
-              required
-            />
-            <button className="button" type="submit">
-              Log In
-            </button>
+          <form className={s.form} onSubmit={login}>
+            <div className={s.subcontainer}>
+              <label>Dni</label>
+              <input
+                type="text"
+                placeholder="Dni"
+                name="dni"
+                onChange={handleInputLoginChange}
+                required
+              />
+              <label>Password</label>
+              <input
+                type="text"
+                placeholder="Password"
+                name="password"
+                onChange={handleInputLoginChange}
+                required
+              />
+              <button className="button" type="submit">
+                Log In
+              </button>
+            </div>
           </form>
         </div>
       )}

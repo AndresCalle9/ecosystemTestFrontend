@@ -2,6 +2,7 @@ import React from "react";
 import { API_TEST } from "../../utils/globalConst";
 import formatterPeso from "../../utils/formatterPeso";
 import formatterUsd from "../../utils/formatterUsd";
+import s from "../../styles/pages/transaction.module.scss"
 
 export const getServerSideProps = async (ctx) => {
   try {
@@ -43,8 +44,8 @@ function transaction({ transactionDetails }) {
   const price =
     currency == "COP" ? formatterPeso(amount) : formatterUsd(amount);
   return (
-    <div>
-      <h1>transaction id {id}</h1>
+    <div className={s.container}>
+      <h2>Transaction id {id}</h2>
       <p>
         <b>Status: </b>
         {state ? "Successfull" : "Pending"}
