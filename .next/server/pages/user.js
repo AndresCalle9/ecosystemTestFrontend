@@ -4,7 +4,7 @@ exports.id = 235;
 exports.ids = [235];
 exports.modules = {
 
-/***/ 7972:
+/***/ 9916:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -74,8 +74,52 @@ function AccountCard({
 }
 
 /* harmony default export */ var AccountCard_AccountCard = (AccountCard);
-// EXTERNAL MODULE: ./src/utils/fetchApi.js
-var fetchApi = __webpack_require__(464);
+// EXTERNAL MODULE: ./src/components/ProductCard/ProductCard.module.scss
+var ProductCard_module = __webpack_require__(3733);
+var ProductCard_module_default = /*#__PURE__*/__webpack_require__.n(ProductCard_module);
+;// CONCATENATED MODULE: ./src/components/ProductCard/ProductCard.jsx
+
+
+
+
+
+function ProductCard({
+  info,
+  status,
+  date
+}) {
+  const {
+    ProductName,
+    Currency,
+    Tax
+  } = info;
+  return /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
+    className: (ProductCard_module_default()).card,
+    children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("h3", {
+      children: ["Product: ", ProductName]
+    }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("p", {
+      children: [/*#__PURE__*/jsx_runtime_.jsx("b", {
+        children: "Tax: "
+      }), Tax]
+    }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("p", {
+      children: [/*#__PURE__*/jsx_runtime_.jsx("b", {
+        children: "Currency: "
+      }), Currency]
+    }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("p", {
+      children: [/*#__PURE__*/jsx_runtime_.jsx("b", {
+        children: "Date: "
+      }), date]
+    }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("p", {
+      children: [/*#__PURE__*/jsx_runtime_.jsx("b", {
+        children: "Status: "
+      }), status]
+    })]
+  });
+}
+
+/* harmony default export */ var ProductCard_ProductCard = (ProductCard);
+// EXTERNAL MODULE: ./src/utils/fetchApi.js + 1 modules
+var fetchApi = __webpack_require__(8560);
 // EXTERNAL MODULE: ./src/styles/pages/user.module.scss
 var user_module = __webpack_require__(8285);
 var user_module_default = /*#__PURE__*/__webpack_require__.n(user_module);
@@ -86,11 +130,14 @@ var user_module_default = /*#__PURE__*/__webpack_require__.n(user_module);
 
 
 
+
+
 const getServerSideProps = async ctx => {
   try {
     const accountsData = await (0,fetchApi/* default */.Z)(`api/user/accounts/${ctx.query.dni}`, "GET");
+    const productsData = await (0,fetchApi/* default */.Z)(`api/user/products/${ctx.query.dni}`, "GET");
 
-    if (!accountsData) {
+    if (!accountsData || !productsData) {
       return {
         statusCode: 503
       };
@@ -99,9 +146,13 @@ const getServerSideProps = async ctx => {
     const {
       accounts
     } = await accountsData.json();
+    const {
+      products
+    } = await productsData.json();
     return {
       props: {
         accounts,
+        products,
         statusCode: 200
       }
     };
@@ -116,7 +167,8 @@ const getServerSideProps = async ctx => {
 };
 
 const index = ({
-  accounts
+  accounts,
+  products
 }) => {
   const {
     0: userData,
@@ -153,80 +205,30 @@ const index = ({
           dni: userData.Dni
         }, item.id);
       })
+    }), /*#__PURE__*/jsx_runtime_.jsx("h2", {
+      children: "Products Requested"
+    }), /*#__PURE__*/jsx_runtime_.jsx("div", {
+      className: (user_module_default()).accountsContainer,
+      children: products.map(item => {
+        return /*#__PURE__*/jsx_runtime_.jsx(ProductCard_ProductCard, {
+          info: item.product,
+          status: item.status,
+          date: item.date
+        }, item.date);
+      })
+    }), /*#__PURE__*/jsx_runtime_.jsx(next_link.default, {
+      href: `/newproduct?dni=${userData.Dni}`,
+      children: /*#__PURE__*/jsx_runtime_.jsx("a", {
+        children: /*#__PURE__*/jsx_runtime_.jsx("button", {
+          className: "button",
+          children: "Add new product"
+        })
+      })
     })]
   });
 };
 
 /* harmony default export */ var user = (index);
-
-/***/ }),
-
-/***/ 464:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _utils_globalConst__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(145);
-
-
-const fetchApi = async (endPoint, method, body) => {
-  const res = await fetch(`${_utils_globalConst__WEBPACK_IMPORTED_MODULE_0__/* .API_TEST */ .w}/${endPoint}`, {
-    method: method,
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(body)
-  });
-  return res;
-};
-
-/* harmony default export */ __webpack_exports__["Z"] = (fetchApi);
-
-/***/ }),
-
-/***/ 289:
-/***/ (function(__unused_webpack_module, __webpack_exports__) {
-
-"use strict";
-const formatterPeso = price => {
-  const priceNumber = Number(price);
-  const priceWithFormat = new Intl.NumberFormat('es-CO', {
-    style: 'currency',
-    currency: 'COP',
-    minimumFractionDigits: 0
-  });
-  return priceWithFormat.format(priceNumber);
-};
-
-/* harmony default export */ __webpack_exports__["Z"] = (formatterPeso);
-
-/***/ }),
-
-/***/ 867:
-/***/ (function(__unused_webpack_module, __webpack_exports__) {
-
-"use strict";
-const formatterUsd = price => {
-  const priceNumber = Number(price);
-  const priceWithFormat = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0
-  });
-  return priceWithFormat.format(priceNumber);
-};
-
-/* harmony default export */ __webpack_exports__["Z"] = (formatterUsd);
-
-/***/ }),
-
-/***/ 145:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "w": function() { return /* binding */ API_TEST; }
-/* harmony export */ });
-const API_TEST = 'http://localhost:5000';
 
 /***/ }),
 
@@ -241,13 +243,26 @@ module.exports = {
 
 /***/ }),
 
+/***/ 3733:
+/***/ (function(module) {
+
+// Exports
+module.exports = {
+	"card": "ProductCard_card__2rr7c"
+};
+
+
+/***/ }),
+
 /***/ 8285:
 /***/ (function(module) {
 
 // Exports
 module.exports = {
 	"container": "user_container__2byro",
-	"accountsContainer": "user_accountsContainer__HEJ2v"
+	"form": "user_form__22r5C",
+	"accountsContainer": "user_accountsContainer__HEJ2v",
+	"card": "user_card__AcGNA"
 };
 
 
@@ -299,7 +314,7 @@ module.exports = require("react/jsx-runtime");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = __webpack_require__.X(0, [664], function() { return __webpack_exec__(7972); });
+var __webpack_exports__ = __webpack_require__.X(0, [664,485], function() { return __webpack_exec__(9916); });
 module.exports = __webpack_exports__;
 
 })();

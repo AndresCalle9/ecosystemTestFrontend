@@ -1,20 +1,14 @@
 import React from "react";
-import { API_TEST } from "../../utils/globalConst";
+import fetchApi from "../../utils/fetchApi";
+
 import formatterPeso from "../../utils/formatterPeso";
 import formatterUsd from "../../utils/formatterUsd";
 import s from "../../styles/pages/transaction.module.scss"
 
 export const getServerSideProps = async (ctx) => {
   try {
-    const transactionData = await fetch(
-      `${API_TEST}/api/user/accounts/transaction/${ctx.params.id}/${ctx.query.dni}/${ctx.query.acc}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+
+    const transactionData = await fetchApi(`api/user/accounts/transaction/${ctx.params.id}/${ctx.query.dni}/${ctx.query.acc}`, "GET");
 
     if (!transactionData) {
       return {

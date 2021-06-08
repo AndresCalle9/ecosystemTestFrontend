@@ -11,20 +11,67 @@
   h2 {
     border-bottom: 1px solid $black;
   }
+  .form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    label {
+      margin: 5px;
+    }
+    input {
+      margin: 5px;
+    }
+    select {
+      margin: 5px;
+    }
+  }
 
   .accountsContainer {
     margin-top: 10px;
     width: 95%;
+    .card {
+      width: 95%;
+      height: 15vh;
+      border: 1px solid $black;
+      padding: 5px;
+      margin: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      a{
+          text-decoration: none;
+          color: $black;
+      }
+      p{
+          margin: 5px;
+      }
+      h3{
+      border-bottom: 1px solid $black;
+          
+      }
+  }
   }
 }
 
 @media (min-width: 786px) {
   .container {
+    .form {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
     .accountsContainer {
       display: flex;
       flex-direction: row;
       justify-content: center;
       flex-wrap: wrap;
+      .card {
+        width: 30%;
+    }
     }
   }
 }

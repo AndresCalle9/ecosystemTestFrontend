@@ -4,6 +4,7 @@
   "/account/[id]": "pages/account/[id].js",
   "/": "pages/index.html",
   "/mean": "pages/mean.js",
+  "/newproduct": "pages/newproduct.js",
   "/transaction/[id]": "pages/transaction/[id].js",
   "/user": "pages/user.js",
   "/_error": "pages/_error.js",

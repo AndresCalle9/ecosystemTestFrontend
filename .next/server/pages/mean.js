@@ -16,7 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9297);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _utils_fetchApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(464);
+/* harmony import */ var _utils_fetchApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8560);
 /* harmony import */ var _utils_formatterPeso__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(289);
 /* harmony import */ var _utils_formatterUsd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(867);
 /* harmony import */ var _styles_pages_mean_module_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6313);
@@ -128,75 +128,6 @@ function index({
 
 /***/ }),
 
-/***/ 464:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _utils_globalConst__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(145);
-
-
-const fetchApi = async (endPoint, method, body) => {
-  const res = await fetch(`${_utils_globalConst__WEBPACK_IMPORTED_MODULE_0__/* .API_TEST */ .w}/${endPoint}`, {
-    method: method,
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(body)
-  });
-  return res;
-};
-
-/* harmony default export */ __webpack_exports__["Z"] = (fetchApi);
-
-/***/ }),
-
-/***/ 289:
-/***/ (function(__unused_webpack_module, __webpack_exports__) {
-
-"use strict";
-const formatterPeso = price => {
-  const priceNumber = Number(price);
-  const priceWithFormat = new Intl.NumberFormat('es-CO', {
-    style: 'currency',
-    currency: 'COP',
-    minimumFractionDigits: 0
-  });
-  return priceWithFormat.format(priceNumber);
-};
-
-/* harmony default export */ __webpack_exports__["Z"] = (formatterPeso);
-
-/***/ }),
-
-/***/ 867:
-/***/ (function(__unused_webpack_module, __webpack_exports__) {
-
-"use strict";
-const formatterUsd = price => {
-  const priceNumber = Number(price);
-  const priceWithFormat = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0
-  });
-  return priceWithFormat.format(priceNumber);
-};
-
-/* harmony default export */ __webpack_exports__["Z"] = (formatterUsd);
-
-/***/ }),
-
-/***/ 145:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "w": function() { return /* binding */ API_TEST; }
-/* harmony export */ });
-const API_TEST = 'http://localhost:5000';
-
-/***/ }),
-
 /***/ 6313:
 /***/ (function(module) {
 
@@ -234,7 +165,7 @@ module.exports = require("react/jsx-runtime");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = (__webpack_exec__(4237));
+var __webpack_exports__ = __webpack_require__.X(0, [485], function() { return __webpack_exec__(4237); });
 module.exports = __webpack_exports__;
 
 })();

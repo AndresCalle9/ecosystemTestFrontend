@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import AccountCard from "../../components/AccountCard/AccountCard";
+import ProductCard from "../../components/ProductCard/ProductCard";
 import fetchApi from "../../utils/fetchApi";
 import s from "../../styles/pages/user.module.scss";
+import Link from "next/link";
+
 
 export const getServerSideProps = async (ctx) => {
   try {
@@ -9,17 +12,24 @@ export const getServerSideProps = async (ctx) => {
       `api/user/accounts/${ctx.query.dni}`,
       "GET"
     );
+    const productsData = await fetchApi(
+      `api/user/products/${ctx.query.dni}`,
+      "GET"
+    );
 
-    if (!accountsData) {
+    if (!accountsData || !productsData) {
       return {
         statusCode: 503,
       };
     }
     const { accounts } = await accountsData.json();
+    const { products } = await productsData.json();
+
 
     return {
       props: {
         accounts,
+        products,
         statusCode: 200,
       },
     };
@@ -33,7 +43,7 @@ export const getServerSideProps = async (ctx) => {
   }
 };
 
-const index = ({ accounts }) => {
+const index = ({ accounts, products}) => {
   const [userData, setUserData] = useState({
     "": "",
   });
@@ -60,6 +70,17 @@ const index = ({ accounts }) => {
           return <AccountCard info={item} key={item.id} dni={userData.Dni} />;
         })}
       </div>
+      <h2>Products Requested</h2>
+      <div className={s.accountsContainer}>
+        {products.map((item) => {
+          return <ProductCard info={item.product} status={item.status} date={item.date} key={item.date}/>;
+        })}
+      </div>
+      <Link href = {`/newproduct?dni=${userData.Dni}`} >
+        <a>
+          <button className="button">Add new product</button>
+        </a>
+      </Link>
     </div>
   );
 };

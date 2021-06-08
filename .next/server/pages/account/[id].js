@@ -21,8 +21,8 @@ __webpack_require__.d(__webpack_exports__, {
 var jsx_runtime_ = __webpack_require__(5282);
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(9297);
-// EXTERNAL MODULE: ./src/utils/fetchApi.js
-var fetchApi = __webpack_require__(464);
+// EXTERNAL MODULE: ./src/utils/fetchApi.js + 1 modules
+var fetchApi = __webpack_require__(8560);
 // EXTERNAL MODULE: ./src/utils/formatterPeso.js
 var formatterPeso = __webpack_require__(289);
 // EXTERNAL MODULE: ./src/utils/formatterUsd.js
@@ -154,75 +154,6 @@ function transactions({
 
 /***/ }),
 
-/***/ 464:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _utils_globalConst__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(145);
-
-
-const fetchApi = async (endPoint, method, body) => {
-  const res = await fetch(`${_utils_globalConst__WEBPACK_IMPORTED_MODULE_0__/* .API_TEST */ .w}/${endPoint}`, {
-    method: method,
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(body)
-  });
-  return res;
-};
-
-/* harmony default export */ __webpack_exports__["Z"] = (fetchApi);
-
-/***/ }),
-
-/***/ 289:
-/***/ (function(__unused_webpack_module, __webpack_exports__) {
-
-"use strict";
-const formatterPeso = price => {
-  const priceNumber = Number(price);
-  const priceWithFormat = new Intl.NumberFormat('es-CO', {
-    style: 'currency',
-    currency: 'COP',
-    minimumFractionDigits: 0
-  });
-  return priceWithFormat.format(priceNumber);
-};
-
-/* harmony default export */ __webpack_exports__["Z"] = (formatterPeso);
-
-/***/ }),
-
-/***/ 867:
-/***/ (function(__unused_webpack_module, __webpack_exports__) {
-
-"use strict";
-const formatterUsd = price => {
-  const priceNumber = Number(price);
-  const priceWithFormat = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0
-  });
-  return priceWithFormat.format(priceNumber);
-};
-
-/* harmony default export */ __webpack_exports__["Z"] = (formatterUsd);
-
-/***/ }),
-
-/***/ 145:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "w": function() { return /* binding */ API_TEST; }
-/* harmony export */ });
-const API_TEST = 'http://localhost:5000';
-
-/***/ }),
-
 /***/ 561:
 /***/ (function(module) {
 
@@ -292,7 +223,7 @@ module.exports = require("react/jsx-runtime");;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = __webpack_require__.X(0, [664], function() { return __webpack_exec__(5478); });
+var __webpack_exports__ = __webpack_require__.X(0, [664,485], function() { return __webpack_exec__(5478); });
 module.exports = __webpack_exports__;
 
 })();
